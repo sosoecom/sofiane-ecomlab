@@ -1,23 +1,114 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sofiane.ecomlab</title>
+<title>Sofiane.ecomlab — edit and publish your own short videos</title>
+<meta name="description" content="Sofiane.ecomlab is a personal desktop tool that edits the owner's own short videos and publishes them to his own TikTok, YouTube and Instagram accounts through the official APIs.">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="1024x1024" href="./icon.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <style>
-  body{background:#0e1116;color:#e8ebf0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center}
-  .card{max-width:520px;padding:40px 28px;text-align:center}
-  h1{font-size:34px;margin:0 0 6px}h1 b{color:#ff3b5c}
-  p{color:#9aa4b2}
-  a{display:inline-block;margin:8px 10px;color:#ff3b5c}
+  :root{--bg:#0f131b;--card:#161b25;--fg:#eef0f4;--muted:#9aa4b2;--line:#252c38;--accent:#ff3b5c}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f6f7f9;--card:#fff;--fg:#14181f;--muted:#5a6472;--line:#e3e6ec}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;color:var(--fg)}
+  .brand img{width:36px;height:36px;border-radius:9px}
+  .brand b{color:var(--accent)}
+  nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px}
+  nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
+  .hero{display:grid;grid-template-columns:1fr 220px;gap:40px;align-items:center;padding:64px 0 48px}
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:0 0 14px}
+  .hero p{color:var(--muted);font-size:18px;margin:0 0 22px}
+  .hero img{width:100%;border-radius:40px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:11px 20px;border-radius:999px;margin:0 8px 8px 0}
+  .btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+  section{padding:40px 0;border-top:1px solid var(--line)}
+  h2{font-size:26px;margin:0 0 8px}
+  .lead{color:var(--muted);margin:0 0 26px;max-width:680px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:17px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  code{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:14px}
+  footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  @media (max-width:700px){.hero{grid-template-columns:1fr;padding-top:40px}.hero img{width:140px;border-radius:28px}}
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Sofiane<b>.ecomlab</b></h1>
-    <p>Outil personnel de montage et de publication de vidéos.</p>
-    <a href="./confidentialite.html">Politique de confidentialité</a>
-    <a href="./conditions.html">Conditions d'utilisation</a>
+<header><div class="wrap">
+  <a class="brand" href="./"><img src="./icon.png" alt="Sofiane.ecomlab icon"><span>Sofiane<b>.ecomlab</b></span></a>
+  <nav><a href="#features">Features</a><a href="#how">How it works</a><a href="#tiktok">TikTok integration</a><a href="#data">Data</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Edit and publish your own short videos, in one place.</h1>
+      <p>Sofiane.ecomlab is a personal desktop tool used by its owner, the creator behind the <b>@sofiane.ecomlab</b> accounts. It turns his raw face-camera recordings into finished vertical videos and publishes them to his own TikTok, YouTube and Instagram accounts through the official APIs.</p>
+      <a class="btn" href="#how">See how it works</a><a class="btn ghost" href="./confidentialite.html">Privacy policy</a>
+    </div>
+    <img src="./icon.png" alt="Sofiane.ecomlab">
   </div>
+
+  <section id="features">
+    <h2>Features</h2>
+    <p class="lead">Everything happens on the owner's computer. Nothing is posted without his explicit click.</p>
+    <div class="grid">
+      <div class="card"><h3>Video editing</h3><p>Cuts silences, adds word-by-word subtitles and a title banner, renders a 1080×1920 vertical video.</p></div>
+      <div class="card"><h3>Quality check</h3><p>Every edit is reviewed (sound level, pacing, framing) before it can be marked ready.</p></div>
+      <div class="card"><h3>Multi-platform posting</h3><p>One ready video, one caption, three platforms: TikTok, YouTube Shorts and Instagram Reels.</p></div>
+      <div class="card"><h3>Scheduling</h3><p>The owner picks a date and time; the post leaves at that time, only on the accounts he selected.</p></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="lead">The complete flow, from recording to publication.</p>
+    <div class="grid">
+      <div class="card"><span class="num">1</span><h3>Record</h3><p>The owner films himself and drops the file into the tool.</p></div>
+      <div class="card"><span class="num">2</span><h3>Edit</h3><p>The tool edits the video; the owner watches it and approves it.</p></div>
+      <div class="card"><span class="num">3</span><h3>Connect</h3><p>Once, the owner signs in with TikTok (Login Kit) and authorizes his own account.</p></div>
+      <div class="card"><span class="num">4</span><h3>Publish</h3><p>He writes the caption, selects the platforms and clicks “Publish” or schedules it.</p></div>
+    </div>
+  </section>
+
+  <section id="tiktok">
+    <h2>TikTok integration</h2>
+    <p class="lead">Sofiane.ecomlab uses TikTok for Developers products only on the owner's own account, after he signs in and grants consent.</p>
+    <table>
+      <tr><th>Product / scope</th><th>How it is used</th></tr>
+      <tr><td>Login Kit · <code>user.info.basic</code></td><td>The owner signs in with TikTok; the tool shows his display name and avatar to confirm which account is connected.</td></tr>
+      <tr><td>Content Posting API · <code>video.upload</code></td><td>Sends a finished video to the owner's TikTok inbox as a draft, so he can finish it in the TikTok app.</td></tr>
+      <tr><td>Content Posting API · <code>video.publish</code></td><td>Posts a video he approved directly to his profile, with his caption and the privacy level he chooses.</td></tr>
+    </table>
+    <p class="lead" style="margin-top:18px">Access can be revoked at any time from the TikTok app (Settings → Security → Manage app permissions).</p>
+  </section>
+
+  <section id="data">
+    <h2>Your data</h2>
+    <p class="lead">Access tokens are stored only on the owner's computer, never on a server and never shared. Videos and statistics stay local. No data is sold or used for advertising. Details in the <a href="./confidentialite.html">privacy policy</a> and the <a href="./conditions.html">terms of service</a>.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="lead">Questions about the app or a data request: <a href="mailto:sofiane.ecomlab@gmail.com">sofiane.ecomlab@gmail.com</a></p>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Sofiane.ecomlab</span>
+  <span><a href="./confidentialite.html">Privacy policy</a> · <a href="./conditions.html">Terms of service</a></span>
+</div></footer>
 </body>
 </html>
